@@ -2,103 +2,117 @@
 
 local hi = vim.api.nvim_set_hl
 
-hi(0, "Boolean", {fg="#AE81FF",})
-hi(0, "Character", {fg="#E6DB74",})
-hi(0, "Number", {fg="#AE81FF",})
-hi(0, "String", {fg="#E6DB74",})
-hi(0, "Conditional", {fg="#F92672", bold=1,})
-hi(0, "Constant", {fg="#AE81FF", bold=1,})
-hi(0, "Cursor", {fg="#000000", bg="#F8F8F0",})
-hi(0, "iCursor", {fg="#000000", bg="#F8F8F0",})
-hi(0, "Debug", {fg="#BCA3A3", bold=1,})
-hi(0, "Define", {fg="#66D9EF",})
-hi(0, "Delimiter", {fg="#8F8F8F",})
+local color_map = { -- {{{
+	Boolean = {fg="#AE81FF",},
+	Character = {fg="#E6DB74",},
+	Number = {fg="#AE81FF",},
+	String = {fg="#E6DB74",},
+	Conditional = {fg="#F92672", bold=1,},
+	Constant = {fg="#AE81FF", bold=1,},
+	Cursor = {fg="#000000", bg="#F8F8F0",},
+	iCursor = {fg="#000000", bg="#F8F8F0",},
+	Debug = {fg="#BCA3A3", bold=1,},
+	Define = {fg="#66D9EF",},
+	Delimiter = {fg="#8F8F8F",},
 
-hi(0, "DiffAdd", {fg="#0044FF", bold=1,})
-hi(0, "DiffChange", {fg="#FD971F", bold=1,})
-hi(0, "DiffDelete", {fg="#FF0000", bold=1,})
-hi(0, "DiffText", {bg="#4C4745", italic = 1,bold=1,})
+	DiffAdd = {fg="#0044FF", bold=1,},
+	DiffChange = {fg="#FD971F", bold=1,},
+	DiffDelete = {fg="#FF0000", bold=1,},
+	DiffText = {bg="#4C4745", italic = 1,bold=1,},
 
-hi(0, "Directory", {fg="#A6E22E", bold=1,})
-hi(0, "Error", {fg="#960050", bg="#1E0010",})
-hi(0, "ErrorMsg", {fg="#F92672", bg="#232526", bold=1,})
-hi(0, "Exception", {fg="#A6E22E", bold=1,})
-hi(0, "Float", {fg="#AE81FF",})
-hi(0, "FoldColumn", {fg="#465457", bg="#000000",})
-hi(0, "Folded", {fg="#465457", bg="#000000",})
-hi(0, "Function", {fg="#A6E22E",})
-hi(0, "Identifier", {fg="#FD971F",})
-hi(0, "Ignore", {fg="#808080",})
-hi(0, "IncSearch", {fg="#AF0000", bold=1,})
+	Directory = {fg="#A6E22E", bold=1,},
+	Error = {fg="#960050", bg="#1E0010",},
+	ErrorMsg = {fg="#F92672", bg="#232526", bold=1,},
+	Exception = {fg="#A6E22E", bold=1,},
+	Float = {fg="#AE81FF",},
+	FoldColumn = {fg="#465457", bg="#000000",},
+	Folded = {fg="#465457", bg="#000000",},
+	Function = {fg="#A6E22E",},
+	Identifier = {fg="#FD971F",},
+	Ignore = {fg="#808080",},
+	IncSearch = {fg="#AF0000", bold=1,},
 
-hi(0, "Keyword", {fg="#F92672", bold=1,})
-hi(0, "Label", {fg="#E6DB74", })
-hi(0, "Macro", {fg="#C4BE89", italic=1,})
-hi(0, "SpecialKey", {fg="#66D9EF", italic=1,})
+	Keyword = {fg="#F92672", bold=1,},
+	Label = {fg="#E6DB74", },
+	Macro = {fg="#C4BE89", italic=1,},
 
-hi(0, "MatchParen", {fg="#000000", bg="#FD971F", bold=1,})
-hi(0, "ModeMsg", {fg="#E6DB74",})
-hi(0, "MoreMsg", {fg="#E6DB74",})
-hi(0, "Operator", {fg="#F92672",})
+	MatchParen = {fg="#000000", bg="#FD971F", bold=1,},
+	ModeMsg = {fg="#E6DB74",},
+	MoreMsg = {fg="#E6DB74",},
+	Operator = {fg="#F92672",},
 
 -- complete menu
-hi(0, "Pmenu", {fg="#66D9EF",})
-hi(0, "PmenuSel", {bg="#808080",})
-hi(0, "PmenuSbar", {bg="#080808",})
-hi(0, "PmenuThumb", {fg="#66D9EF",})
+	Pmenu = {fg="#66D9EF",},
+	PmenuSel = {bg="#808080",},
+	PmenuSbar = {bg="#080808",},
+	PmenuThumb = {fg="#66D9EF",},
 
-hi(0, "PreCondit", {fg="#A6E22E", bold=1,})
-hi(0, "PreProc", {fg="#A6E22E",})
-hi(0, "Question", {fg="#66D9EF",})
-hi(0, "Repeat", {fg="#F92672", bold=1,})
---hi(0, "Search", {fg="#FFFFFF", bg="#455354",})
-hi(0, "Search", {bg="#AF0000", bold=1,})
--- ^ #005FD7 ?
 -- marks
-hi(0, "SignColumn", {fg="#A6E22E",})
-hi(0, "SpecialChar", {fg="#F92672", bold=1,})
-hi(0, "SpecialComment", {fg="#7E8E91", bold=1,})
-hi(0, "Special", {fg="#66D9EF", italic=1,})
-if vim.fn.has("spell") then
-	hi(0, "SpellBad", {sp="#FF0000", undercurl=1,})
-	hi(0, "SpellCap", {sp="#7070F0", undercurl=1,})
-	hi(0, "SpellLocal", {sp="#70F0F0", undercurl=1,})
-	hi(0, "SpellRare", {sp="#FFFFFF", undercurl=1,})
+	PreCondit = {fg="#A6E22E", bold=1,},
+	PreProc = {fg="#A6E22E",},
+	Question = {fg="#66D9EF",},
+	Repeat = {fg="#F92672", bold=1,},
+-- Search = {fg="#FFFFFF", bg="#455354",},
+	Search = {bg="#AF0000", bold=1,},
+-- ^ #005FD7 ?
+	SignColumn = {fg="#A6E22E",},
+	SpecialChar = {fg="#F92672", bold=1,},
+	SpecialComment = {fg="#7E8E91", bold=1,},
+	Special = {fg="#66D9EF", italic=1,},
+
+	SpellBad = {sp="#FF0000", undercurl=1,},
+	SpellCap = {sp="#7070F0", undercurl=1,},
+	SpellLocal = {sp="#70F0F0", undercurl=1,},
+	SpellRare = {sp="#FFFFFF", undercurl=1,},
+
+	Statement = {fg="#F92672", bold=1,},
+-- StatusLine = {fg="#455354", bg="fg",},
+	StatusLineNC = {fg="#808080", bg="#080808",},
+	StorageClass = {fg="#FD971F", italic=1,},
+	Structure = {fg="#66D9EF",},
+	Tag = {fg="#F92672", italic=1,},
+	Title = {fg="#ef5939",},
+	Todo = {fg="#FF0000", bg="#FFFF00", bold=1,},
+
+	Typedef = {fg="#66D9EF",},
+	Type = {fg="#66D9EF",},
+	Underlined = {fg="#808080", underline=1,},
+
+	VertSplit = {fg="#808080", bg="#080808", bold=1,},
+	VisualNOS = {bg="#403D3D",},
+	Visual = {bg="#403D3D",},
+	WarningMsg = {fg="#FFFFFF", bg="#333333", bold=1,},
+	WildMenu = {fg="#66D9EF", bg="#000000",},
+
+	BufferCurrent = {bg="#1B1D1E", fg="#F8F8F2", bold = 1,},
+	BufferVisible = {bg="#1B1D1E", fg="#808080", bold = 1, italic = 1,},
+	BufferInactive = {bg="#1B1D1E", fg="#808080",},
+
+	Conceal = {fg="#ffaa00",},
+
+	Normal = {fg="#F8F8F2",},
+	Comment = {fg="#7E8E91",},
+-- CursorLine = {bg="bg",},
+	CursorLineNr = {fg="#FD971F",},
+	CursorColumn = {bg="#293739",},
+	ColorColumn = {bg="#232526",},
+	LineNr = {fg="#465457",},
+	NonText = {fg="#465457",},
+--	SpecialKey = {fg="#465457",},
+	SpecialKey = {fg="#66D9EF", italic=1,},
+} -- }}}
+
+for k,v in pairs(color_map) do
+	hi(0,k,v)
 end
-hi(0, "Statement", {fg="#F92672", bold=1,})
--- hi(0, "StatusLine", {fg="#455354", bg="fg",})
-hi(0, "StatusLineNC", {fg="#808080", bg="#080808",})
-hi(0, "StorageClass", {fg="#FD971F", italic=1,})
-hi(0, "Structure", {fg="#66D9EF",})
-hi(0, "Tag", {fg="#F92672", italic=1,})
-hi(0, "Title", {fg="#ef5939",})
-hi(0, "Todo", {fg="#FF0000", bg="#FFFF00", bold=1,})
 
-hi(0, "Typedef", {fg="#66D9EF",})
-hi(0, "Type", {fg="#66D9EF",})
-hi(0, "Underlined", {fg="#808080", underline=1,})
+vim.g.colormap = color_map -- so, mapping can be used by other plugins
 
-hi(0, "VertSplit", {fg="#808080", bg="#080808", bold=1,})
-hi(0, "VisualNOS", {bg="#403D3D",})
-hi(0, "Visual", {bg="#403D3D",})
-hi(0, "WarningMsg", {fg="#FFFFFF", bg="#333333", bold=1,})
-hi(0, "WildMenu", {fg="#66D9EF", bg="#000000",})
 
-hi(0, "BufferCurrent", {bg="#1B1D1E", fg="#F8F8F2", bold = 1,})
-hi(0, "BufferVisible", {bg="#1B1D1E", fg="#808080", bold = 1, italic = 1,})
-hi(0, "BufferInactive", {bg="#1B1D1E", fg="#808080",})
 
-hi(0, "Conceal", {fg="#ffaa00",})
-
-hi(0, "Normal", {fg="#F8F8F2",})
-hi(0, "Comment", {fg="#7E8E91",})
--- hi(0, "CursorLine", {bg="bg",})
-hi(0, "CursorLineNr", {fg="#FD971F",})
-hi(0, "CursorColumn", {bg="#293739",})
-hi(0, "ColorColumn", {bg="#232526",})
-hi(0, "LineNr", {fg="#465457",})
-hi(0, "NonText", {fg="#465457",})
-hi(0, "SpecialKey", {fg="#465457",})
+-- TODO: ⇓⇓⇓
+--  XXX: something like "if truecolor (maybe "gui or termguicolors") then ⇑⇑⇑ else if 256color then ⇓⇓⇓ else <something>
+--  XXX: (not sure if I should make fallback mappings for 88, 16, 8 colors and monochrome)
 
 --
 -- Support for 256-color terminal
