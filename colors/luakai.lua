@@ -66,7 +66,7 @@ local color_map = { -- {{{
 	SpellRare = {sp="#FFFFFF", undercurl=1,},
 
 	Statement = {fg="#F92672", bold=1,},
--- StatusLine = {fg="#455354", bg="fg",},
+	StatusLine = {fg="#455354", bg="NONE",},
 	StatusLineNC = {fg="#808080", bg="#080808",},
 	StorageClass = {fg="#FD971F", italic=1,},
 	Structure = {fg="#66D9EF",},
