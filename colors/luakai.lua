@@ -43,8 +43,8 @@ local color_map = { -- {{{
 
 -- complete menu
 	Pmenu = {fg="#66D9EF",},
-	PmenuSel = {bg="#808080",},
-	PmenuSbar = {bg="#080808",},
+	PmenuSel = {bg="#444444",},
+	PmenuSbar = {bg="#111111",},
 	PmenuThumb = {fg="#66D9EF",},
 
 -- marks
@@ -92,7 +92,7 @@ local color_map = { -- {{{
 
 	Normal = {fg="#F8F8F2",},
 	Comment = {fg="#7E8E91",},
--- CursorLine = {bg="bg",},
+	CursorLine = {bg="NONE",},
 	CursorLineNr = {fg="#FD971F",},
 	CursorColumn = {bg="#293739",},
 	ColorColumn = {bg="#232526",},
@@ -117,7 +117,7 @@ vim.g.colormap = color_map -- so, mapping can be used by other plugins
 --
 -- Support for 256-color terminal
 --
---[[
+--[[{{{
 if vim.go.t_Co and tonumber(vim.go.t_Co) > 255 then
 	hi(0, "Normal", {ctermfg=252,})
 	hi(0, "CursorLine", {cterm="none",})
@@ -244,4 +244,4 @@ if vim.go.t_Co and tonumber(vim.go.t_Co) > 255 then
 		hi(0, "SpecialKey", {ctermfg=239,})
 	end
 end
---]]
+--}}}]]
